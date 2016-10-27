@@ -12,8 +12,8 @@ group = sys.argv[1]
 members_file = "data/members/{0}.json".format(group)
 
 key =  os.environ['MEETUP_API_KEY']
-lat = "51.5072"
-lon = "0.1275"
+lat = "29.761993"
+lon = "-95.366302"
 
 print "processing group {0}".format(group)
 results = []

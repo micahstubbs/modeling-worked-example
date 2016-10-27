@@ -5,13 +5,14 @@ import json
 from pprint import pprint
 
 key =  os.environ['MEETUP_API_KEY']
-lat = "51.5072"
-lon = "0.1275"
+lat = "29.761993"
+lon = "-95.366302"
 
-seed_topic = "nosql"
+seed_topic = "visualization"
 uri = "https://api.meetup.com/2/groups?&topic={0}&lat={1}&lon={2}&key={3}".format(seed_topic, lat, lon, key)
 
 r = requests.get(uri)
+# print r.json()
 all_topics = [topic["urlkey"]  for result in r.json()["results"] for topic in result["topics"]]
 c = Counter(all_topics)
 
