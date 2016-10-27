@@ -13,6 +13,7 @@ with open('data/groups.json') as group_file:
 groups = [str(group['id']) for group in groups_json]
 
 for group in groups:
+    print group
     members_file = "data/members/{0}.json".format(group)
     if os.path.isfile(members_file):
         print "Members {0}: Already processed [{1}]".format(group, os.stat(members_file).st_size)
@@ -35,6 +36,7 @@ for group in groups:
         print "-> remaining: {0}, reset: {1}".format(remaining, reset)
 
         response = r.json()
+        #print response
         for result in response["results"]:
             results.append(result)
         uri = response["meta"]["next"] if response["meta"]["next"] else None
